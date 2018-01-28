@@ -1,3 +1,6 @@
+// comments
+
+
 var todoList = {
   todos: [],
   displayTodos: function() {
@@ -32,8 +35,29 @@ var todoList = {
   },
   toggleCompleted: function(position) {
     var todo = this.todos[position];
-    //variable todo saves us some typing below
+    // variable todo saves us some typing below
     todo.completed = !todo.completed;
+    this.displayTodos();
+  },
+  toggleAll: function() {
+    // If everything is true, make everything false
+    // otherwise, make everything true
+    var totalTodos = this.todos.length;
+    var completedTodos = 0;
+    for (var i = 0; i < totalTodos; i++) {
+      if (this.todos[i].completed === true) {
+          completedTodos++;
+      }
+    }
+    if (completedTodos === totalTodos) {
+      for (var i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = false;
+      }
+    } else {
+      for (var i = 0; i < totalTodos; i++) {
+        this.todos[i].completed = true;
+      }
+    }
     this.displayTodos();
   }
 };
