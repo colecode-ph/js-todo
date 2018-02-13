@@ -110,6 +110,19 @@ var view = {
       handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
       }
     });
+
+    // code added from stack overflow to make enter key click add button
+    document.getElementById("addTodoTextInput")
+        .addEventListener( "keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode === 13) {
+            document.getElementById("addTodoButton").click();
+        }
+
+    });
+
+
+
   }
 };
 
